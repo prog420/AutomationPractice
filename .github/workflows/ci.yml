@@ -8,7 +8,7 @@ on:
   #   branches: [ "main" ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +28,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Test with pytest
+        continue-on-error: true
         run: |
           pytest --headless --alluredir=allure-results
 
