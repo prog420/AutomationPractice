@@ -1,3 +1,16 @@
+[tool.pytest.ini_options]
+addopts = [
+    "--alluredir=allure-reports",
+    "--strict-markers",
+    "--strict-config",
+    "-vs"
+]
+markers = [
+    # Work In Progress (test is not finished)
+    "wip"
+]
+
+
 [tool.black]
 line-length=79
 target-version=['py311']
