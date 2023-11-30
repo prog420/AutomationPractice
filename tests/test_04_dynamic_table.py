@@ -1,10 +1,8 @@
 import allure
-import pytest
 from tests.base_case import BaseCase
 from src.pages import DynamicTablePage
 
 
-@pytest.mark.wip
 @allure.feature("Dynamic Table")
 class TestDynamicTable(BaseCase):
     @allure.title("TC 04.001 User Is Able Open Dynamic Table Page")
