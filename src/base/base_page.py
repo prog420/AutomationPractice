@@ -1,3 +1,4 @@
+import json
 from typing import Tuple, List
 
 import allure
@@ -19,6 +20,15 @@ class BasePage:
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
+
+    @allure.step("Get User Agent")
+    def get_user_agent(self):
+        user_agent = self.driver.execute_script("return navigator.userAgent;")
+        allure.attach(
+            body=json.dumps({"User Agent": user_agent}),
+            attachment_type=AttachmentType.JSON
+        )
+        return user_agent
 
     def open(self):
         with allure.step(f"Open {self.PAGE_URL} page"):
