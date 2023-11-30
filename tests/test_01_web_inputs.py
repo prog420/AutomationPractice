@@ -55,4 +55,6 @@ class TestWebInputs(BaseCase):
         web_inp_page.fill_date_field(date_input)
         web_inp_page.display_inputs()
         assert web_inp_page.output_date.text == expected_output
-        assert web_inp_page.input_date.get_attribute("value") == expected_output
+        assert (
+            web_inp_page.input_date.get_attribute("value") == expected_output
+        )

@@ -25,7 +25,9 @@ def config(request: pytest.FixtureRequest):
     if browser.lower() == "chrome":
         options = ChromeOptions()
         # Install ad block extension
-        options.add_extension("external_files/extensions/uBlock0_1.52.0.chromium.zip")
+        options.add_extension(
+            "external_files/extensions/uBlock0_1.52.0.chromium.zip"
+        )
     else:
         raise ValueError(f"Browser {browser} is not supported.")
 

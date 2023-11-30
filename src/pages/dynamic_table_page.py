@@ -15,16 +15,13 @@ class DynamicTablePage(BasePage):
         return numeric_value
 
     @allure.step("Get cell value for header '{header} and row '{row}'")
-    def get_cell_value_by_header_and_row(self, header='', row=''):
+    def get_cell_value_by_header_and_row(self, header="", row=""):
         row_locator = self.LOCATORS.format_locator(
             self.LOCATORS.TABLE_ROW, row
         )
         headers = [
-            element.text for element
-            in self.find_elements(self.LOCATORS.TABLE_HEADERS)
+            element.text
+            for element in self.find_elements(self.LOCATORS.TABLE_HEADERS)
         ]
-        row = [
-            element.text for element
-            in self.find_elements(row_locator)
-        ]
+        row = [element.text for element in self.find_elements(row_locator)]
         return row[headers.index(header)]

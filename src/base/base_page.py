@@ -42,23 +42,35 @@ class BasePage:
             return self.wait().until(EC.url_to_be(self.PAGE_URL))
 
     def find_element(self, locator: Tuple[str, str], timeout=10) -> WebElement:
-        return self.wait(timeout).until(EC.presence_of_element_located(locator))
+        return self.wait(timeout).until(
+            EC.presence_of_element_located(locator)
+        )
 
-    def find_visible_element(self, locator: Tuple[str, str], timeout=10) -> WebElement:
-        return self.wait(timeout).until(EC.visibility_of_element_located(locator))
+    def find_visible_element(
+        self, locator: Tuple[str, str], timeout=10
+    ) -> WebElement:
+        return self.wait(timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
 
     def find_clickable_element(
         self, locator: Tuple[str, str], timeout=10
     ) -> WebElement:
         return self.wait(timeout).until(EC.element_to_be_clickable(locator))
 
-    def find_elements(self, locator: Tuple[str, str], timeout=10) -> List[WebElement]:
-        return self.wait(timeout).until(EC.presence_of_all_elements_located(locator))
+    def find_elements(
+        self, locator: Tuple[str, str], timeout=10
+    ) -> List[WebElement]:
+        return self.wait(timeout).until(
+            EC.presence_of_all_elements_located(locator)
+        )
 
     def find_visible_elements(
         self, locator: Tuple[str, str], timeout=10
     ) -> List[WebElement]:
-        return self.wait(timeout).until(EC.visibility_of_any_elements_located(locator))
+        return self.wait(timeout).until(
+            EC.visibility_of_any_elements_located(locator)
+        )
 
     def make_screenshot(self, screenshot_name):
         allure.attach(
@@ -74,5 +86,7 @@ class BasePage:
             return False
         return True
 
-    def is_not_element_present(self, locator: Tuple[str, str], timeout=10) -> bool:
+    def is_not_element_present(
+        self, locator: Tuple[str, str], timeout=10
+    ) -> bool:
         return not self.is_element_present(locator, timeout)

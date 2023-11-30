@@ -3,8 +3,9 @@ from typing import Tuple
 
 class BasePageLocators:
     @staticmethod
-    def format_locator(locator: Tuple[str, str], *args, **kwargs) \
-            -> Tuple[str, str]:
+    def format_locator(
+        locator: Tuple[str, str], *args, **kwargs
+    ) -> Tuple[str, str]:
         """
         Format **selector** part of the locator.
 
