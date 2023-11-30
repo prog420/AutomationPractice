@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def pytest_addoption(parser: pytest.Parser):
     parser.addoption("--headless", action="store_true")
+    parser.addoption("--no-cookie", action="store_true")
     parser.addoption("--browser", default="chrome")
 
 
@@ -20,6 +21,7 @@ def config(request: pytest.FixtureRequest):
     """
     headless: bool = request.config.getoption("--headless")
     browser: str = request.config.getoption("--browser")
+    no_cookie: bool = request.config.getoption("--no-cookie")
 
     options = None
     if browser.lower() == "chrome":
@@ -28,6 +30,11 @@ def config(request: pytest.FixtureRequest):
         options.add_extension(
             "external_files/extensions/uBlock0_1.52.0.chromium.zip"
         )
+        if no_cookie:
+            options.add_experimental_option(
+                "prefs",
+                {"profile.default_content_setting_values.cookies": 2}
+            )
     else:
         raise ValueError(f"Browser {browser} is not supported.")
 
@@ -41,7 +48,10 @@ def config(request: pytest.FixtureRequest):
     if headless:
         options.add_argument("-headless")
 
-    return {"browser": browser, "headless": headless, "options": options}
+    return {
+        "browser": browser, "headless": headless, "options": options,
+        "no_cookie": no_cookie
+    }
 
 
 @pytest.fixture(scope="function")
