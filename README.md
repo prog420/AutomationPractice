@@ -3,8 +3,6 @@
 [![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)]()
 [![CodeStyle](https://img.shields.io/badge/code%20style-black-000000.svg)]()
 
----
-
 A playground project for automated UI testing using Python, Pytest and Selenium.
 
 **Test Reports:** [Allure](https://allurereport.org/)
