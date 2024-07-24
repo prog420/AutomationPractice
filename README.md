@@ -1,30 +1,28 @@
 ## Test Automation Project for [Practice.ExpandTesting.com](https://practice.expandtesting.com/)
-
----
-
 [![Website](https://img.shields.io/website.svg?url=https://prog420.github.io/AutomationPractice)]()
 [![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)]()
 [![CodeStyle](https://img.shields.io/badge/code%20style-black-000000.svg)]()
 
 ---
 
-It's a playground project for automated UI testing using Python, Pytest and Selenium.
+A playground project for automated UI testing using Python, Pytest and Selenium.
 
 **Test Reports:** [Allure](https://allurereport.org/)
 
 **CI:** [Github Actions](https://github.com/features/actions/)
 
-### 🛠️ Prerequisites
+---
 
+### &nbsp;&nbsp;🛠️ Prerequisites
 [![Pytest](https://img.shields.io/badge/pytest-7.4.0-blue)](https://pypi.python.org/pypi/pytest)
 [![pytest-xdist](https://img.shields.io/badge/pytest--xdist-3.3.1-blue)](https://pypi.org/project/pytest-xdist/)
 [![Selenium](https://img.shields.io/badge/selenium-4.10.0-blue)](https://pypi.org/project/selenium/)
 [![Allure Pytest](https://img.shields.io/badge/allure--pytest-2.13.2-blue)](https://pypi.python.org/pypi/allure-pytest)
 [![webdriver-manager](https://img.shields.io/badge/webdriver--manager-4.0.0-blue)](https://pypi.org/project/webdriver-manager/)
 
-### 🛠️ Running Tests
-
 ---
+
+### &nbsp;&nbsp;🛠️ Running Tests
 
 #### a) Github Actions CI
 
@@ -39,8 +37,6 @@ Launch New Test Run:
 5. Click `Run Workflow`.
 6. Wait until the job is complete.
 7. Navigate to [Allure Report Page](https://prog420.github.io/AutomationPractice).
-
----
 
 #### b) Local Machine:
 
@@ -70,8 +66,8 @@ pytest -vs --alluredir=allure-reports
 ```bash
 allure serve allure-reports
 ```
-
 ---
 
-#### CLI Arguments:
+### &nbsp;&nbsp;🛠️ CLI Arguments:
+
 1. `--headless` - run tests without loading the browser's UI.
